@@ -28,4 +28,4 @@
 * upravljanje grupom i upravljanje IoT uređajima iz grupe <br />
 * koristi SOAP web servis {korisnicko_ime}_aplikacija_1 za meteorološke podatke za odabrani IoT uređaj, za adresu odabranog IoT uređaja <br />
 * koristi REST web servis {korisnicko_ime}_aplikacija_1 za pregled, upravljanje i autenticiranje korisnika <br />
-* koristi REST web servis {korisnicko_ime}_aplikacija_1 za upavljanje IoT uređajima
+* koristi REST web servis {korisnicko_ime}_aplikacija_1 za upravljanje IoT uređajima
