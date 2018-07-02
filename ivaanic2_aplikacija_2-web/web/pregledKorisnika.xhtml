@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      <f:view locale="#{lokalizator.odabraniJezik}" > 
+    <h:head>
+        <title>Facelet Title</title>
+       
+    </h:head>
+    <h:body>
+         
+        <h:form id="forma">
+            <h1>#{m.korisnici}</h1>
+            <h:commandButton value="#{m.jezik}"  action="promjenaJezika" /> 
+                            <h:commandButton value="#{m.uredaji}"  action="pregledIoTIMateo" />                       
+                             <h:commandButton value="#{m.naredbe}"  action="naredbe" /> 
+                              <h:commandButton value="E-mail" action="pregledMailova"/>
+                              <h:commandButton value="IoT_master" action="ioT_master"/>
+                                <h:commandButton value="#{m.odjava}"  action="index" />
+                                
+                                <br/>
+                                <br/>
+                                <br/>
+                                
+                                
+                           <h:outputLabel value="#{m.username}" for="noviId" /> <br/>
+                        <h:inputText value="#{sviKorisniciIAzuriranje.username}" id="noviId" /><br/> 
+                        <h:outputLabel value="password " for="noviNaziv" /><br/>
+                        <h:inputText value="#{sviKorisniciIAzuriranje.password}" id="noviNaziv" /> <br/>
+                        <h:outputLabel value="email " for="noviEmail" /> <br/>
+                        <h:inputText value="#{sviKorisniciIAzuriranje.email}" id="noviEmail" />
+                        <br/>
+                        <br/>
+                        
+                        <h:commandButton value="#{m.azuriraj}" action="#{sviKorisniciIAzuriranje.azurirajKorisnika()}" >
+                            <f:ajax execute="noviId noviNaziv noviEmail" render="forma" />
+                        </h:commandButton><br/>
+                        
+                        <br/>
+                        <h:outputLabel id="greska" rendered="#{sviKorisniciIAzuriranje.odgovor== 'A'}" value="#{m.pregledPoruka_registracijaGreska}" /> 
+                        <br/><br/>
+    		<h:dataTable id="sviKorisnici" value="#{sviKorisniciIAzuriranje.korisnici}" var="o"
+    			styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row">
+
+    			<h:column>
+    				<f:facet name="header">Id</f:facet>
+    				<!-- row record -->
+    				#{o.id}
+    			</h:column>
+
+    			<h:column>
+    				<f:facet name="header">#{m.username}</f:facet>
+    				#{o.username}
+    			</h:column>
+
+    			<h:column>
+    				<f:facet name="header">#{m.password}</f:facet>
+    				#{o.password}
+    			</h:column>
+
+    			<h:column>
+    				<f:facet name="header">#{m.email}</f:facet>
+    				#{o.email}
+    			</h:column>
+    		</h:dataTable>
+        </h:form>
+    </h:body>
+   </f:view>
+</html>
+

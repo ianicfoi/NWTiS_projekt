@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      <f:view locale="#{lokalizator.odabraniJezik}" > 
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+         <h:form id="forma">
+            <h1>IoT_Master</h1>
+               <h:commandButton value="#{m.uredaji}"  action="pregledIoTIMateo" /> 
+               <h:commandButton value="#{m.odjava}"  action="index" /> 
+                <h:commandButton value="#{m.naredbe}"  action="naredbe" /> 
+               <h:commandButton value="E-mail" action="pregledMailova"/>
+               <h:commandButton value="#{m.korisnici}" action="korisnici"/>
+               <h:commandButton value="#{m.jezik}" action="promjenaJezika"/>
+                              
+                              <br/>
+                              <br/>
+                              <br/>
+                              
+             <h:commandButton value="#{m.cisti}" action="#{iot_master.clearMaster()}" >
+                <f:ajax execute="noviId noviNaziv noviAdresa" render="forma" />
+            </h:commandButton>
+            
+                  <h:commandButton value="#{m.puni}" action="#{iot_master.loadMaster()}" >
+                <f:ajax execute="noviId noviNaziv noviAdresa" render="forma" />
+            </h:commandButton>
+            
+            
+            <h:commandButton value="#{m.prikazi}" action="#{iot_master.listMaster()}" >
+                <f:ajax execute="noviId noviNaziv noviAdresa" render="forma" />
+            </h:commandButton>
+            
+             <div style="margin-left:20px">
+           
+            <h:outputText  value="#{m.odgovor}"/>
+          
+                <h:outputText value="#{iot_master.responseMaster}" escape="false"/> 
+            </div>
+
+        </h:form>
+    </h:body>
+  </f:view>
+</html>
+

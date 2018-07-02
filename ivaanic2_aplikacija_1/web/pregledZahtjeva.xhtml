@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:view   >
+        <h:head>
+            <title>Pregled poruka</title>
+          
+        </h:head>
+       <h:body style="margin: 30px;">
+           <h3>Zahtjevi </h3>
+           <br/>
+            <h:form>
+                <h:commandButton   style="margin-left:30px;margin-right:30px;" value="Dnevnik" action="pregledDnevnika" /> 
+                <h:commandButton   style="margin-left:30px;margin-right:30px;" value="Korisnici" action="PregledKorisnika" />  
+                
+                <div style="height: auto;">
+                    
+                    <h:dataTable value="#{pregledZahtjeva.listaSvihKorisnika}" var="p">
+                        <h:column >
+                            <f:facet   name="header"> ID   </f:facet>
+                            <h:outputText value="#{p.id}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Username</f:facet>
+                            <h:outputText value="#{p.username}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Datum</f:facet>
+                            <h:outputText value="#{p.email}" />
+                            
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Zahtjev</f:facet>
+                            <h:outputText value="#{p.password}" />
+                        </h:column> 
+                             
+                    </h:dataTable>
+                </div>
+                <br/>   
+                          
+                <h:commandButton style="margin-left:30px;margin-right:30px;" value="Prethodni" action="#{pregledZahtjeva.prethodniKorisnici()}"/>
+                <h:commandButton value="Sljedeci" action="#{pregledZahtjeva.sljedeciKorisnici}"/>                
+            </h:form>
+        </h:body>
+    </f:view>
+</html>
+
